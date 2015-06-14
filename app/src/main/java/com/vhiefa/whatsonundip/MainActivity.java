@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 
 /**
- * Created by Afifatul Mukaroh
+ * Created by Afifatul Mukaroh :)
  */
 public class MainActivity extends ActionBarActivity implements EventFragment.Callback  {
 
