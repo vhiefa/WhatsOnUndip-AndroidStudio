@@ -49,7 +49,7 @@ public class WhatsOnUndipSyncAdapter extends AbstractThreadedSyncAdapter {
     public final String LOG_TAG = WhatsOnUndipSyncAdapter.class.getSimpleName();
 
     // Interval at which to sync with the event, in milliseconds.
-    public static final int SYNC_INTERVAL = 60;// * 60 * 3; //3 hours
+    public static final int SYNC_INTERVAL = 60 * 60 * 3; //3 hours
     public static final int SYNC_FLEXTIME = SYNC_INTERVAL/3;
 
     public WhatsOnUndipSyncAdapter(Context context, boolean autoInitialize) {
