@@ -137,7 +137,7 @@ public class EventFragment extends Fragment implements LoaderCallbacks<Cursor> {
     @Override
     public void onStart() {
         super.onStart();
-        //updateEvent();
+        updateEvent();
     }
 
 
