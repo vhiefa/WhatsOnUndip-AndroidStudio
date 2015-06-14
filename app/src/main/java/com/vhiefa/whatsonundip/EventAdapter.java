@@ -49,7 +49,7 @@ public class EventAdapter extends CursorAdapter{
         viewHolder. titleView .setText(Utility.getShorterTitle(title));
 
         String venue = cursor.getString(EventFragment.COL_EVENT_VENUE);
-        viewHolder. venueView .setText(venue);
+        viewHolder. venueView .setText(Utility.getShorterVenue(venue));
 
 
         String category = cursor.getString(EventFragment.COL_EVENT_CATEGORY);

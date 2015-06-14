@@ -47,15 +47,6 @@
                 android:value="com.vhiefa.whatsonundip.MainActivity" />
         </activity>
 
-        <activity
-            android:name="com.vhiefa.whatsonundip.AboutActivity"
-            android:label="About"
-            android:parentActivityName="com.vhiefa.whatsonundip.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vhiefa.whatsonundip.MainActivity" />
-        </activity>
-
         <provider
             android:authorities="com.vhiefa.whatsonundip"
             android:syncable="true"

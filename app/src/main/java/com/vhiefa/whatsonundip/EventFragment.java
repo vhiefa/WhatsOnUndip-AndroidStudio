@@ -6,6 +6,7 @@ import com.vhiefa.whatsonundip.data.EventContract;
 import com.vhiefa.whatsonundip.data.EventContract.EventEntry;
 import com.vhiefa.whatsonundip.sync.WhatsOnUndipSyncAdapter;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -67,24 +68,6 @@ public class EventFragment extends Fragment implements LoaderCallbacks<Cursor> {
         setHasOptionsMenu(true);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.eventfragment, menu);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_refresh) {
-            updateEvent();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

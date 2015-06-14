@@ -41,6 +41,8 @@ public class MainActivity extends ActionBarActivity implements EventFragment.Cal
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
         return true;
     }
 
@@ -53,14 +55,6 @@ public class MainActivity extends ActionBarActivity implements EventFragment.Cal
         if (id == R.id.action_submit) {
             Intent i = null;
             i = new Intent(MainActivity.this, SubmitEventActivity.class);
-            startActivity(i);
-            return true;
-
-        }
-
-        if (id == R.id.action_about) {
-            Intent i = null;
-            i = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(i);
             return true;
 
