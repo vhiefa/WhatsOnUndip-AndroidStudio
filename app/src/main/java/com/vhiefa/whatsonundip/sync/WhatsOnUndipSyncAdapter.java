@@ -13,6 +13,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+//import android.content.SyncRequest;
 import android.content.SyncRequest;
 import android.content.SyncResult;
 import android.database.Cursor;
@@ -48,7 +49,7 @@ public class WhatsOnUndipSyncAdapter extends AbstractThreadedSyncAdapter {
     public final String LOG_TAG = WhatsOnUndipSyncAdapter.class.getSimpleName();
 
     // Interval at which to sync with the event, in milliseconds.
-    public static final int SYNC_INTERVAL = 60 * 60 * 1; //1 hours
+    public static final int SYNC_INTERVAL = 60;// * 60 * 3; //3 hours
     public static final int SYNC_FLEXTIME = SYNC_INTERVAL/3;
 
     public WhatsOnUndipSyncAdapter(Context context, boolean autoInitialize) {
@@ -226,15 +227,16 @@ public class WhatsOnUndipSyncAdapter extends AbstractThreadedSyncAdapter {
     public static void configurePeriodicSync(Context context, int syncInterval, int flexTime) {
         Account account = getSyncAccount(context);
         String authority = context.getString(R.string.content_authority);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-            SyncRequest request = new SyncRequest.Builder()
-                    .syncPeriodic(syncInterval, flexTime)
-                    .setSyncAdapter(account, authority)
-                    .setExtras(new Bundle()).build();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            // we can enable inexact timers in our periodic sync
+            SyncRequest request = new SyncRequest.Builder().
+                    syncPeriodic(syncInterval, flexTime).
+                    setSyncAdapter(account, authority).build();
             ContentResolver.requestSync(request);
-        }else{
-            ContentResolver.addPeriodicSync(account, authority, new Bundle(), syncInterval);
-        }
+        } else {
+        ContentResolver.addPeriodicSync(account,
+                authority, new Bundle(), syncInterval);
+         }
     }
 
     /**
